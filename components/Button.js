@@ -77,4 +77,5 @@ export function TextButton({ children, className = "", href, ...props }) {
   );
 }
 
-export default { PrimaryButton, SecondaryButton, OutlineButton, TextButton };
+const ButtonComponents = { PrimaryButton, SecondaryButton, OutlineButton };
+export default ButtonComponents;

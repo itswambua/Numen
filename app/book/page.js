@@ -123,12 +123,12 @@ export default function BookPage() {
               <p className="text-deep-brown">
               The famine was catastrophic and pervasive throughout the entire Kamba land, killing nearly a quarter of the Kamba population, 
               but the members of the Aimu clan were spared due to their mastery of interpreting omens.
-              </p>
-              <p className="text-deep-brown">
+
               Their magical prowess remained a source of awe and admiration, and their ability to protect themselves 
               and others was unparalleled. Unquestionably the Aimu clan Was testament to the power of the ancient 
               knowledge of the Kamba people and the importance of preserving it for future generations.
               </p>
+              <br></br>  
               <p className="text-deep-brown italic">
                 (Chapter preview continues...)
               </p>
@@ -168,12 +168,12 @@ export default function BookPage() {
                 <blockquote className="italic text-mountain-dark mb-4">
                   {i === 1 && "I couldn't put this book down! The world-building is phenomenal, and Amara's journey kept me turning pages late into the night."}
                   {i === 2 && "As someone who rarely reads fantasy, I was surprised by how emotionally invested I became in these characters. Hillan K has a gift for making the fantastical feel deeply human."}
-                  {i === 3 && "The cultural details in this book are so rich and thoughtfully presented. It's refreshing to read fantasy that draws from non-Western traditions in such an authentic way."}
+                  {i === 3 && "\"The Numen of Banda\" vividly brings to life the rich tapestry of Kamba culture, offering a deep connection to traditions, values, and stories that resonate with my own experiences. As I read through the pages, I am transported back to my childhood, where my grandpa would often share tales of our heritage and the customs of our people. The book paints a vivid picture of the very world my grandpa spoke of, bringing those cherished memories to the forefront. It feels as though the stories that once seemed like distant whispers in our family gatherings have now been woven into the fabric of this narrative, allowing me to see them with fresh eyes. The way it captures the essence of the Kamba way of life—its spirituality, customs, and the close-knit bond within the community—creates a profound sense of nostalgia and belonging. Through this work, I am reminded of the timeless wisdom passed down through generations, and the deep-rooted connection we share with our ancestors."}
                 </blockquote>
                 <p className="font-semibold text-deep-brown">
                   {i === 1 && "— Tinah K."}
                   {i === 2 && "— Pauline M."}
-                  {i === 3 && "— RickJohns E."}
+                  {i === 3 && "— Ben E."}
                 </p>
               </div>
             ))}

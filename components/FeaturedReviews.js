@@ -8,13 +8,13 @@ export default function FeaturedReviews() {
     {
       id: 1,
       quote: "Numen of Banda is a literary triumph that weaves together history, myth, and human emotion in a tapestry of extraordinary beauty.",
-      author: "Literary Weekly",
+      author: "RicJohns E., Reader",
       rating: 5
     },
     {
       id: 2,
       quote: "Hillan K has crafted a masterpiece that will be discussed in literary circles for decades to come. A must-read for anyone who appreciates profound storytelling.",
-      author: "Book Lovers Society",
+      author: "Mstahiki Meya., Reader",
       rating: 5
     },
     {
@@ -26,7 +26,7 @@ export default function FeaturedReviews() {
     {
       id: 4,
       quote: "A rare gem in contemporary literature that balances intellectual depth with emotional resonance. I couldn't put it down.",
-      author: "Sarah J., Book Blogger",
+      author: "Mbulu J., Book Blogger",
       rating: 5
     }
   ];

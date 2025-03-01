@@ -1,21 +1,4 @@
-// import Counter from "@/component/Counter";
-// import Link from "next/link";
 
-// // import { useRouter } from "next/router";
-
-// export default function Home() {
-//   return (
-//     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-//       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-//         <Counter title= "Counter 11" />
-        
-//       </main>
-//       <Link href="/dashboard" className="undeline">
-//         Dashboard
-//       </Link>
-//     </div>
-//   );
-// }
 
 import Hero from "@/components/Hero";
 import BookFeatures from "@/components/BookFeatures";
@@ -68,7 +51,7 @@ export default function Home() {
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">Publisher:</span>
-                    <span>Literary Press</span>
+                    <span>Tablo Publishing</span>
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">Release Date:</span>
@@ -76,11 +59,12 @@ export default function Home() {
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">Pages:</span>
-                    <span>384</span>
+                    <span>190</span>
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">ISBN:</span>
-                    <span>978-1-2345-6789-0</span>
+                    <span>978-1-2345-6789-0</span> 
+                    {/* 978-16-85839-89-5 */}
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">Formats:</span>

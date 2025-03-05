@@ -24,10 +24,8 @@ export default function AuthorSection() {
           <div className="md:w-2/3">
             <h2 className="text-3xl font-bold mb-4 text-deep-brown">About Hillan K. Nzioka</h2>
             <p className="text-lg mb-4 text-mountain-dark">
-              Hillan K. Nzioka is an acclaimed author known for crafting stories that bridge cultures and explore the depths of human experience. With a background in literature and anthropology, Hillan brings a unique perspective to storytelling that resonates with readers worldwide.
-            </p>
-            <p className="text-lg mb-6 text-mountain-dark">
-              When not writing, Hillan can be found traveling to gather inspiration for future works, engaging with readers at literary events, and mentoring aspiring writers. Numen of Banda represents the culmination of years of research and a passionate dedication to the craft of writing.
+              Hillan Nzioka is a Kenyan-born author living in Sydney, Australia, who balances his career as a civil servant with his passion for storytelling. Drawing from his rich cultural heritage, 
+              Nzioka's writing is characterised by observational humour and vivid imagery, bringing the vibrant tapestry of Kenyan life to the page.
             </p>
             <Link 
               href="/about" 

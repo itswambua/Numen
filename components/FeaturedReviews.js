@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { OutlineButton } from "@/components/Button";
 
 export default function FeaturedReviews() {
   const reviews = [
     {
       id: 1,
-      quote: "Numen of Banda is a literary triumph that weaves together history, myth, and human emotion in a tapestry of extraordinary beauty.",
+      quote: "The book is a literary triumph that weaves together history, myth, and human emotion in a tapestry of extraordinary beauty.",
       author: "RicJohns E., Reader",
       rating: 5
     },
@@ -42,15 +43,15 @@ export default function FeaturedReviews() {
   };
 
   return (
-    <section className="py-16 bg-mountain text-white">
+    <section className="py-16 bg-sky/90 text-deep-brown">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-2">Reader Reviews</h2>
-        <p className="text-center mb-12 text-gray-200">See what others are saying about Numen of Banda</p>
+        <p className="text-center mb-12 text-mountain-dark">See what others are saying about Numen of <span className="text-rooster font-semibold">Banda</span></p>
         
         <div className="relative max-w-4xl mx-auto">
           <button 
             onClick={prevReview}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:translate-x-0 bg-mountain-dark hover:bg-mountain text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:translate-x-0 bg-sky-light hover:bg-sky text-deep-brown w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10 border border-mountain/30"
             aria-label="Previous review"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,19 +59,25 @@ export default function FeaturedReviews() {
             </svg>
           </button>
           
-          <div className="bg-mountain-dark rounded-lg p-8 md:p-12 shadow-lg">
+          <div className="bg-sky-light/80 rounded-lg p-8 md:p-12 shadow-lg border border-mountain/30">
             <div className="text-4xl text-rooster mb-6">❝</div>
-            <p className="text-xl md:text-2xl italic mb-6">{reviews[activeReview].quote}</p>
+            <p className="text-xl md:text-2xl italic mb-6 text-deep-brown">
+              {reviews[activeReview].quote.includes("Numen of Banda") 
+                ? reviews[activeReview].quote.replace("Numen of Banda", "Numen of ") + " "
+                : reviews[activeReview].quote}
+              {reviews[activeReview].quote.includes("Numen of Banda") && 
+                <span className="text-rooster font-semibold">Banda</span>}
+            </p>
             
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold">{reviews[activeReview].author}</p>
+                <p className="font-semibold text-deep-brown">{reviews[activeReview].author}</p>
                 <div className="flex mt-2">
                   {[...Array(5)].map((_, i) => (
                     <svg 
                       key={i}
                       xmlns="http://www.w3.org/2000/svg" 
-                      className={`h-5 w-5 ${i < reviews[activeReview].rating ? 'text-rooster' : 'text-gray-600'}`} 
+                      className={`h-5 w-5 ${i < reviews[activeReview].rating ? 'text-rooster' : 'text-mountain-light'}`} 
                       viewBox="0 0 20 20" 
                       fill="currentColor"
                     >
@@ -79,7 +86,7 @@ export default function FeaturedReviews() {
                   ))}
                 </div>
               </div>
-              <div className="text-sm">
+              <div className="text-sm text-mountain">
                 {activeReview + 1} of {reviews.length}
               </div>
             </div>
@@ -87,7 +94,7 @@ export default function FeaturedReviews() {
           
           <button 
             onClick={nextReview}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-0 bg-mountain-dark hover:bg-mountain text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-0 bg-sky-light hover:bg-sky text-deep-brown w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-mountain/30"
             aria-label="Next review"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,9 +104,12 @@ export default function FeaturedReviews() {
         </div>
         
         <div className="mt-10 text-center">
-          <OutlineButton href="/reviews" variant="light">
+          <Link
+            href="/reviews"
+            className="inline-block border-2 border-rooster hover:bg-rooster text-deep-brown hover:text-white font-bold py-3 px-8 rounded-md transition-all duration-300 transform hover:scale-105 shadow-md"
+          >
             Read All Reviews
-          </OutlineButton>
+          </Link>
         </div>
       </div>
     </section>

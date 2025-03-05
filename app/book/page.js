@@ -40,19 +40,19 @@ export default function BookPage() {
                   <ul className="space-y-1 text-mountain-dark">
                     <li className="flex justify-between">
                       <span>Hardcover</span>
-                      <span>AUD $34.12</span>
+                      <span>USD $26.99</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Paperback</span>
-                      <span>AUD $34.12</span>
+                      <span>USD $19.99</span>
                     </li>
                     <li className="flex justify-between">
                       <span>E-book</span>
-                      <span>AUD $34.12</span>
+                      <span>USD $9.99</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Audiobook</span>
-                      <span>AUD $34.12</span>
+                      <span>USD $29.99</span>
                     </li>
                   </ul>
                 </div>
@@ -63,32 +63,37 @@ export default function BookPage() {
               <h2 className="text-3xl font-bold mb-6 text-deep-brown">Synopsis</h2>
               <div className="prose max-w-none text-lg">
                 <p className="mb-4 text-deep-brown">
-                  <strong className="text-rooster">The bird on the Mountain.</strong> In a world where the boundaries between the spiritual and physical realms blur, 
-                  <strong> Numen of Banda</strong> tells the story of Amara, a young woman who discovers 
-                  she possesses the rare ability to communicate with the numina—ancient spirits that 
-                  have guided her people for generations. 
+                  <strong className="text-rooster">Caught between Tradition and Change: A Coming-of-Age Tale Where Tradition Becomes Survival</strong> <br></br>
+                  In the rugged landscapes of Kenya, where ancestral traditions and modern influences converge, 
+                  <strong> The Numen of Banda</strong> unfolds the compelling tale of Benjo Jogoo, a remarkable twelve-year-old boy caught between the powerful forces of tradition and change. 
                 </p>
                 <p className="mb-4 text-deep-brown">
-                  As political tensions rise in her homeland of Banda, Amara finds herself caught between 
-                  competing factions who seek to use her abilities for their own ends. Guided by her 
-                  grandmother's teachings and her own intuition, she embarks on a journey to understand 
-                  the true nature of her gift and its purpose in a changing world.
+                Under the formidable shadow of his grandmother Sosh—a revered Field Marshal in the Kenya Land and Freedom Army and matriarch of the Aombe clan—Benjo 
+                navigates the complexities of his heritage. When his mother Minto experiences a second miscarriage, the family embarks on a perilous journey through 
+                treacherous terrain to seek healing from the legendary Numen of Banda, a mysterious medicine man with extraordinary abilities.
                 </p>
                 <p className="mb-4 text-deep-brown">
-                  Along the way, she encounters allies and adversaries who challenge her understanding 
-                  of history, power, and identity. From the bustling markets of the capital city to the 
-                  sacred groves where the numina dwell, each setting becomes a character in its own right, 
-                  richly detailed and immersive.
+                Their epic pilgrimage takes them across the unforgiving Thika River, through the vast Yatta Plateau, and past territories of hostile tribes. 
+                Every step brings new trials: confrontations with dangerous wildlife, tense encounters with the feared Akimi cannibals, and navigations 
+                through the political complexities of tribal relations. 
+                Each setting—from the dense jungle floor to the majestic Mount Banda—emerges as a character in its own right, beautifully rendered in vivid detail.
                 </p>
                 <p className="mb-4 text-deep-brown">
-                  As Amara's powers grow, so do the threats against her. She must navigate complex 
-                  political landscapes, ancient prophecies, and her own conflicted heart as she decides 
-                  where her true loyalties lie. Will she use her unique connection to the numina to 
-                  preserve tradition, or to forge a new path forward for her people?
+                As they reach their destination, they stand awestruck before the Numen's compound—a bewildering otherworld where palatial opulence mocks abject suffering, 
+                where the medicine man's mansion rises like an eighth wonder of the world in the wilderness, and where ancient blood rituals are 
+                performed under chandeliers that would make European royalty envious. 
+                Through rituals and treatments, they gain not only physical healing but profound insights into their family's destiny.
                 </p>
                 <p className="text-deep-brown">
-                  Hillan K. Nzioka weaves a tapestry of adventure, mythology, and coming-of-age drama in this 
-                  unforgettable tale about finding one's voice amid the echoes of history.
+                Upon their return—armed with potions, amulets, and strict instructions that would make a military general's orders seem casual—Benjo faces 
+                the knife in his circumcision ceremony, a brutal trial where one flinch could brand him an outcast forever. But the celebration is cut short 
+                by the devastating loss of his grandmother Sosh. As the novel closes, 
+                Benjo must reconcile his grief with his new responsibilities as Sosh's chosen heir, carrying forward her legacy in a rapidly changing world.
+                </p>
+                <p className="text-deep-brown">
+                Hillan K. Nzioka masterfully weaves a tapestry of Kamba traditions, colonial history, and personal transformation in this unforgettable 
+                coming-of-age story. Through one family's journey, we witness the enduring 
+                power of heritage, the complexity of modernization, and the unbreakable bonds that define us.
                 </p>
               </div>
               
@@ -96,11 +101,11 @@ export default function BookPage() {
                 <h3 className="text-2xl font-bold mb-4 text-deep-brown">Critical Acclaim</h3>
                 <div className="card-highlight">
                   <blockquote className="italic text-mountain-dark mb-4">
-                    "In Numen of Banda, Hillan K has created not just a story, but an entire world that 
-                    feels at once fantastical and deeply authentic. The characters breathe with life, the 
-                    plot twists with unpredictable grace, and the themes resonate with contemporary relevance."
+                  "In The Numen of Banda, Hillan K. Nzioka has crafted an extraordinary cultural epic that transports readers into the heart of 
+                  Kenyan tribal life with stunning authenticity. His portrayal of Kamba traditions, from the sacred circumcision rites to the mystical Kilumi dances, reveals an author deeply 
+                  committed to preserving cultural heritage while unflinchingly examining its complexities."
                   </blockquote>
-                  <p className="text-right font-semibold text-deep-brown">— The Literary Review</p>
+                  <p className="text-right font-semibold text-deep-brown">- African Literary Review</p>
                 </div>
               </div>
             </div>
@@ -113,20 +118,20 @@ export default function BookPage() {
         <div className="container mx-auto px-6">
           <h2 className="section-title">Chapter Preview</h2>
           <div className="max-w-3xl mx-auto card-primary">
-            <h3 className="text-2xl font-bold mb-4 text-deep-brown">Chapter 1: The Calling</h3>
+            <h3 className="text-2xl font-bold mb-4 text-deep-brown">Chapter 1: Sosh's Reign of Terror</h3>
             <div className="prose max-w-none">
               <p className="text-deep-brown">
-              A remarkable story of Aimu foresight is told about their successful prediction of the devastating famine of 1898, 
-              three years before it occurred. This prediction allowed them ample time to migrate temporarily to the neighbouring 
-              country of the Nyamwezi people in Tanganyika, where they remained until the famine had passed. 
+              The matriarch, perched on a rickety stool beneath a mango tree behind her dwelling house, shifted her haunches uncomfortably on the 
+              three-legged seat to reach for an earthen spittoon stowed beneath her perch. She lifted the lid and spat a mouthful of 
+              tobacco-contaminated spittle into the cuspidor before bellowing out the name of her twelve-year-old grandson, Benjo. 
+              In an instant, the poor boy burst out of a nearby hut and stood before his 
+              grandmother like an infantry soldier awaiting further instructions from a regimental drill sergeant. 
               </p>
               <p className="text-deep-brown">
-              The famine was catastrophic and pervasive throughout the entire Kamba land, killing nearly a quarter of the Kamba population, 
-              but the members of the Aimu clan were spared due to their mastery of interpreting omens.
-
-              Their magical prowess remained a source of awe and admiration, and their ability to protect themselves 
-              and others was unparalleled. Unquestionably the Aimu clan Was testament to the power of the ancient 
-              knowledge of the Kamba people and the importance of preserving it for future generations.
+                "Go and tell your father to come and see me, now!" Grandma Sosh commanded without preamble or even lifting her eyes to meet Benjo's.
+              </p>
+              <p className="text-deep-brown">
+              The boy stood still, listening carefully to his grandmother's diktats before quickly vanishing to carry out her wishes.
               </p>
               <br></br>  
               <p className="text-deep-brown italic">
@@ -166,9 +171,9 @@ export default function BookPage() {
                   ))}
                 </div>
                 <blockquote className="italic text-mountain-dark mb-4">
-                  {i === 1 && "I couldn't put this book down! The world-building is phenomenal, and Amara's journey kept me turning pages late into the night."}
+                  {i === 1 && "I couldn't put this book down! The world-building is phenomenal, and Benjo's journey kept me turning pages late into the night."}
                   {i === 2 && "As someone who rarely reads fantasy, I was surprised by how emotionally invested I became in these characters. Hillan K has a gift for making the fantastical feel deeply human."}
-                  {i === 3 && "\"The Numen of Banda\" vividly brings to life the rich tapestry of Kamba culture, offering a deep connection to traditions, values, and stories that resonate with my own experiences. As I read through the pages, I am transported back to my childhood, where my grandpa would often share tales of our heritage and the customs of our people. The book paints a vivid picture of the very world my grandpa spoke of, bringing those cherished memories to the forefront. It feels as though the stories that once seemed like distant whispers in our family gatherings have now been woven into the fabric of this narrative, allowing me to see them with fresh eyes. The way it captures the essence of the Kamba way of life—its spirituality, customs, and the close-knit bond within the community—creates a profound sense of nostalgia and belonging. Through this work, I am reminded of the timeless wisdom passed down through generations, and the deep-rooted connection we share with our ancestors."}
+                  {i === 3 && "\"The Numen of Banda\" vividly brings to life the rich tapestry of Kamba culture, offering a deep connection to traditions, values, and stories that resonate with my own experiences. As I read through the pages, I am transported back to my childhood, where my grandpa would often share tales of our heritage and the customs of our people. The book paints a vivid picture of the very world my grandpa spoke of, bringing those cherished memories to the forefront. Through this work, I am reminded of the timeless wisdom passed down through generations, and the deep-rooted connection we share with our ancestors."}
                 </blockquote>
                 <p className="font-semibold text-deep-brown">
                   {i === 1 && "— Tinah K."}
@@ -194,7 +199,7 @@ export default function BookPage() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Start Reading?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join Amara on her journey through the mystical world of Banda today.
+            Join Benjo on his journey through the world of Banda today.
           </p>
           <Link 
             href="/purchase" 

@@ -10,11 +10,11 @@ export default function PurchasePage() {
   const [quantity, setQuantity] = useState(1);
   
   const formats = [
-    { id: "hardcover", name: "Hardcover", price: 34.12, deliveryTime: "3-5 business days", stock: "In Stock" },
-    { id: "paperback", name: "Paperback", price: 34.12, deliveryTime: "3-5 business days", stock: "In Stock" },
-    { id: "ebook", name: "E-book", price: 34.12, deliveryTime: "Instant download", stock: "Digital Product" },
-    { id: "audiobook", name: "Audiobook", price: 34.12, deliveryTime: "Instant download", stock: "Digital Product" },
-    { id: "special", name: "Collector's Edition", price: 59.99, deliveryTime: "7-10 business days", stock: "Limited Stock" }
+    { id: "hardcover", name: "Hardcover", price: 26.99, deliveryTime: "3-5 business days", stock: "In Stock" },
+    { id: "paperback", name: "Paperback", price: 19.99, deliveryTime: "3-5 business days", stock: "In Stock" },
+    { id: "ebook", name: "E-book", price: 9.99, deliveryTime: "Instant download", stock: "Digital Product" },
+    { id: "audiobook", name: "Audiobook", price: 29.99, deliveryTime: "Instant download", stock: "Digital Product" },
+    // { id: "special", name: "Collector's Edition", price: 19.99, deliveryTime: "7-10 business days", stock: "Limited Stock" }
   ];
 
   const formatDetails = formats.find(f => f.id === selectedFormat);
@@ -39,7 +39,7 @@ export default function PurchasePage() {
       <div className="bg-mountain-pattern py-12">
         <div className="container mx-auto px-6 relative z-10">
           <h1 className="text-4xl font-bold mb-4 text-white">Purchase Your Copy</h1>
-          <p className="text-xl text-gray-200">Begin your journey into the world of Numen of Banda</p>
+          <p className="text-xl text-gray-200">Begin your journey into the world of The Numen of Banda</p>
         </div>
       </div>
       
@@ -63,7 +63,7 @@ export default function PurchasePage() {
                   >
                     <div className="flex justify-between items-center mb-4">
                       <h3 className="text-xl font-semibold text-deep-brown">{format.name}</h3>
-                      <div className="text-xl font-bold text-rooster">AUD ${format.price.toFixed(2)}</div>
+                      <div className="text-xl font-bold text-rooster">USD ${format.price.toFixed(2)}</div>
                     </div>
                     <p className="text-mountain mb-2">Delivery: {format.deliveryTime}</p>
                     <p className="text-forest text-sm mb-4">{format.stock}</p>
@@ -94,7 +94,7 @@ export default function PurchasePage() {
                   />
                 </div>
                 <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-deep-brown">Numen of Banda</h3>
+                  <h3 className="text-xl font-bold text-deep-brown">The Numen of Banda</h3>
                   <p className="text-mountain mb-2">By Hillan K. Nzioka</p>
                   <div className="flex mb-2">
                     {[...Array(5)].map((_, i) => (
@@ -165,7 +165,7 @@ export default function PurchasePage() {
                 
                 <div className="mb-6">
                   <p className="text-mountain mb-2">Selected Format:</p>
-                  <p className="text-xl font-semibold text-deep-brown">{formatDetails.name} - AUD ${formatDetails.price.toFixed(2)}</p>
+                  <p className="text-xl font-semibold text-deep-brown">{formatDetails.name} - USD ${formatDetails.price.toFixed(2)}</p>
                 </div>
                 
                 {selectedFormat !== "ebook" && selectedFormat !== "audiobook" && (
@@ -196,7 +196,7 @@ export default function PurchasePage() {
                 <div className="border-t border-mountain/20 my-4 pt-4">
                   <div className="flex justify-between mb-2">
                     <span className="text-deep-brown">Subtotal</span>
-                    <span className="font-semibold text-deep-brown">AUD ${subtotal}</span>
+                    <span className="font-semibold text-deep-brown">USD ${subtotal}</span>
                   </div>
                   <div className="flex justify-between mb-2">
                     <span className="text-deep-brown">Shipping</span>
@@ -206,7 +206,7 @@ export default function PurchasePage() {
                   </div>
                   <div className="border-t border-mountain/20 mt-4 pt-4 flex justify-between">
                     <span className="text-deep-brown font-bold">Total</span>
-                    <span className="font-bold text-deep-brown text-xl">AUD ${total}</span>
+                    <span className="font-bold text-deep-brown text-xl">USD ${total}</span>
                   </div>
                 </div>
                 

@@ -8,7 +8,7 @@ export default function AboutPage() {
       <div className="bg-mountain-pattern py-12">
         <div className="container mx-auto px-6 relative z-10">
           <h1 className="text-4xl font-bold mb-4 text-white">About the Author</h1>
-          <p className="text-xl text-gray-200">The creative mind behind Numen of Banda</p>
+          <p className="text-xl text-gray-200">The creative mind behind The Numen of Banda</p>
         </div>
       </div>
       
@@ -36,7 +36,7 @@ export default function AboutPage() {
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-rooster mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
-                      <span>hillan.k.nzioka@example.com</span>
+                      <span>info@numenofbanda.com</span>
                     </li>
                     {/* <li className="flex items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-rooster mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,11 +83,11 @@ export default function AboutPage() {
                   <ul className="space-y-4">
                     <li>
                       <Link href="/book" className="text-mountain-dark hover:text-rooster font-medium">
-                        Numen of Banda (2024)
+                        The Numen of Banda (2024)
                       </Link>
                     </li>
-                    <li className="text-mountain">Essays on Cultural Identity (2023)</li>
-                    <li className="text-mountain">Short Story Collection: Voices of the Land (2021)</li>
+                    {/* <li className="text-mountain">Essays on Cultural Identity (2023)</li>
+                    <li className="text-mountain">Short Story Collection: Voices of the Land (2021)</li> */}
                   </ul>
                 </div>
               </div>
@@ -98,27 +98,37 @@ export default function AboutPage() {
               
               <div className="prose max-w-none mb-10">
                 <p className="text-deep-brown mb-4">
-                  Hillan K. Nzioka is an acclaimed author whose storytelling weaves together elements of mythology, cultural history, and contemporary themes. Born and raised in East Africa before relocating to pursue advanced studies in literature and anthropology, Hillan brings a unique perspective to the literary world that bridges multiple cultural traditions.
+                  <strong>Hillan K. Nzioka</strong> is an accomplished author whose writing explores the profound intersections of cultural heritage, traditional knowledge, and societal transformation. 
+                  Born and raised in a small peasant farming village in Lower Eastern Kenya, Hillan experienced firsthand the rich cultural environment that serves as the foundation for "The Numen of Banda."
                 </p>
-                
+
                 <p className="text-deep-brown mb-4">
-                  With a background that spans academic research, cultural preservation work, and creative writing, Hillan has developed a distinctive voice that resonates with readers seeking authentic narratives that explore the complexities of identity, tradition, and change in an increasingly interconnected world.
+                  After completing his formative education in rural Kenya, Hillan relocated to Nairobi for secondary and university studies, 
+                  earning a Bachelor of Arts in Economics, Geography, and Sociology from Egerton University. His academic journey continued with a 
+                  Master of Business Administration from Central Queensland University and a Post Graduate Certificate in Public Policy from 
+                  Queensland University of Technology, equipping him with a multidimensional perspective that enriches his storytelling.
                 </p>
-                
-                <p className="text-deep-brown mb-4">
-                  After completing graduate studies at the University of Literature and Fine Arts, Hillan embarked on a journey through various regions collecting oral histories and folklore that would later influence the rich worldbuilding evident in works like "Numen of Banda." This dedication to research and cultural authenticity has become a hallmark of Hillan's writing process.
+                <p className="text-deep-brown mb-4"> 
+                  With over a decade of professional experience in the New South Wales public sector, 
+                  Hillan has developed expertise in environmental protection, regulatory compliance, and policy analysis. 
+                  His work at the Environmental Protection Authority and Department of Environment, Energy, Climate Change and Water has provided invaluable insights 
+                  into the delicate balance between human development and environmental stewardship—themes that resonate throughout his literary work.
                 </p>
                 
                 <blockquote className="bg-sky/30 p-4 border-l-4 border-rooster italic text-deep-brown mb-6">
-                  "I write to explore the spaces between worlds—between tradition and modernity, between cultures, between the visible reality and the unseen forces that shape our lives. In these liminal spaces, I believe we find our truest stories."
+                "I write to bridge worlds - connecting traditional wisdom with contemporary challenges, cultural heritage with modern identity. My stories emerge from 
+                the spaces where ancient knowledge meets present reality."
                 </blockquote>
                 
                 <p className="text-deep-brown mb-4">
-                  When not writing, Hillan can be found lecturing at writers' workshops, mentoring emerging authors, and continuing the field research that informs the authentic cultural details woven throughout each narrative. An avid hiker and amateur photographer, Hillan often finds inspiration in natural landscapes and their connection to local traditions and myths.
+                A certified associate in project management with specialized training in environmental regulation, Hillan brings analytical precision and methodical 
+                research to his creative writing process. 
+                This attention to detail ensures the authentic representation of cultural practices and traditions in his narratives.
                 </p>
                 
                 <p className="text-deep-brown">
-                  Hillan currently divides time between a small coastal town and traveling for research and speaking engagements. "Numen of Banda" represents the culmination of years dedicated to crafting a story that honors cultural heritage while speaking to universal human experiences.
+                Now based in Australia as a skilled migrant, Hillan continues to draw inspiration from his Kenyan heritage while embracing the multicultural dimensions of his adopted home. 
+                "The Numen of Banda" represents his literary dedication to preserving cultural stories while examining the universal human experiences that transcend geographical boundaries.
                 </p>
               </div>
               
@@ -126,15 +136,21 @@ export default function AboutPage() {
               
               <div className="prose max-w-none mb-10">
                 <p className="text-deep-brown mb-4">
-                  The inspiration for "Numen of Banda" came during a research expedition where Hillan documented traditional spiritual practices and their evolution in contemporary society. What began as academic field notes gradually transformed into the framework for a narrative exploring how ancient wisdom might navigate modern challenges.
+                The inspiration for "The Numen of Banda" draws from a rich tapestry of influences, particularly the oral narratives and folklore shared by Hillan's grandmother 
+                during his childhood in rural Kenya. Her masterful storytelling captivated his imagination and 
+                instilled a deep appreciation for traditional Kamba wisdom and cultural practices, many of which are meticulously depicted in the novel.                
                 </p>
                 
                 <p className="text-deep-brown mb-4">
-                  Hillan's writing process typically begins with extensive research, followed by months of outline development before the actual drafting begins. For "Numen of Banda," this process involved consulting with cultural experts, studying historical documents, and spending time in communities where traditional spiritual practices remain vibrant.
+                Hillan's creative approach combines these foundational influences with his formal education in English literature and poetry during high school, and later studies in sociology at college. 
+                His writing process begins with thorough research, followed by careful character development that explores the complexity of cultural identity. 
+                Growing up in Lower Eastern Kenya provided authentic insights that enhance the narrative's portrayal of traditional ceremonies and community dynamics.
                 </p>
                 
                 <p className="text-deep-brown">
-                  Each character in the novel represents different facets of the tension between tradition and change. Amara's journey, in particular, emerged from conversations with young people navigating their cultural heritage in a rapidly changing world. Their stories of discovery, conflict, and reconciliation formed the emotional core that drives the narrative.
+                The journey of Benjo—from innocent child to designated heir—reflects both observed traditions and literary influences accumulated through years of extensive reading. 
+                Hillan's professional background in environmental policy further enriches the novel's exploration of how traditional knowledge systems interact with contemporary challenges, 
+                creating a narrative that resonates with authenticity while addressing universal themes of belonging and transformation.
                 </p>
               </div>
               
@@ -142,15 +158,15 @@ export default function AboutPage() {
               
               <div className="prose max-w-none mb-10">
                 <p className="text-deep-brown mb-4">
-                  While "Numen of Banda" stands as a complete story, Hillan is currently researching for a companion work that will explore different aspects of the same world. Readers can expect this new project to maintain the cultural depth and character-driven narrative that defines Hillan's work while introducing new perspectives on the universe created in "Numen of Banda."
-                </p>
+                Working on a new novel - "The Death Knell Drums of Luzira".
+                </p><br></br>
                 
-                <p className="text-deep-brown">
+                {/* <p className="text-deep-brown">
                   Additionally, Hillan is collaborating with scholars to develop educational resources that highlight the cultural elements featured in the novel, making them accessible to students and readers interested in deeper exploration of the traditions that inspired the story.
-                </p>
+                </p> */}
               </div>
               
-              <h2 className="text-3xl font-bold mb-6 text-deep-brown">Speaking Engagements</h2>
+              {/* <h2 className="text-3xl font-bold mb-6 text-deep-brown">Speaking Engagements</h2>
               
               <div className="prose max-w-none mb-8">
                 <p className="text-deep-brown mb-4">
@@ -161,13 +177,13 @@ export default function AboutPage() {
                   For speaking engagement inquiries, please use the contact information provided or reach out through social media channels.
                 </p>
               </div>
-              
+               */}
               <div className="mt-12 text-center">
                 <Link 
                   href="/book" 
                   className="bg-rooster hover:bg-rooster-dark text-white font-bold py-3 px-8 rounded-md transition-colors shadow-lg"
                 >
-                  Discover Numen of Banda
+                  Discover The Numen of Banda
                 </Link>
               </div>
             </div>

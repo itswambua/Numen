@@ -1,5 +1,4 @@
-
-
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import BookFeatures from "@/components/BookFeatures";
 import FeaturedReviews from "@/components/FeaturedReviews";
@@ -18,22 +17,27 @@ export default function Home() {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold mb-6 text-deep-brown">Discover the Epic Tale</h2>
               <p className="text-lg mb-4">
-                Set against the backdrop of a richly imagined world, <strong>Numen of Banda</strong> follows 
-                the journey of its protagonist through challenges that test not only their resolve but their 
-                understanding of what it means to be human.
+                Set against the backdrop of Kenya's post-colonial landscape, <strong>The Numen of Banda</strong> follows Benjo's journey through treacherous territories 
+                and sacred rituals that test not only his courage but his understanding of what it means to be heir to a warrior's legacy.
               </p>
               <p className="text-lg mb-6">
-                With prose that has been described as "mesmerizing" and "evocative," Hillan K invites readers 
-                into a narrative experience unlike any other, where each page reveals new layers of meaning 
-                and emotional depth.
+                With prose that has been described as &quot;mesmerizing&quot; and &quot;evocative,&quot; Hillan K invites readers 
+                into a world where ancestral spirits and modern medicine collide, where each page reveals the powerful bonds between generations.
               </p>
               <div className="flex flex-wrap gap-4">
-                <PrimaryButton href="/book">
+                {/* Enhanced buttons with animation and improved styling */}
+                <Link
+                  href="/book"
+                  className="bg-rooster hover:bg-rooster-dark text-white font-bold py-3 px-6 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 transform"
+                >
                   Read Chapter Preview
-                </PrimaryButton>
-                <SecondaryButton href="/purchase">
+                </Link>
+                <Link
+                  href="/purchase"
+                  className="bg-rooster hover:bg-rooster-dark text-white font-bold py-3 px-6 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 transform"
+                >
                   Purchase Options
-                </SecondaryButton>
+                </Link>
               </div>
             </div>
             <div className="md:w-1/2">
@@ -43,7 +47,7 @@ export default function Home() {
                 <ul className="space-y-3 text-deep-brown">
                   <li className="flex">
                     <span className="font-semibold w-32">Title:</span>
-                    <span>Numen of Banda</span>
+                    <span>The Numen of Banda</span>
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">Author:</span>
@@ -72,7 +76,7 @@ export default function Home() {
                   </li>
                   <li className="flex">
                     <span className="font-semibold w-32">Price:</span>
-                    <span>$34.12 (Hardcover)</span>
+                    <span>$26.99 (Hardcover)</span>
                   </li>
                 </ul>
               </div>
@@ -82,19 +86,25 @@ export default function Home() {
       </section>
 
       <BookFeatures />
+      
+      {/* For FeaturedReviews, we'd need to update the component itself */}
       <FeaturedReviews />
+      
       <AuthorSection />
       
-      {/* Call to Action */}
-      <section className="py-16 bg-forest text-white text-center">
+      {/* Enhanced Call to Action with darker, more distinct button */}
+      <section className="py-16 bg-sky text-deep-brown text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-6">Begin Your Journey Today</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join thousands of readers who have already discovered the magic of Numen of Banda.
+            Join thousands of readers who have already discovered the magic of The Numen of Banda.
           </p>
-          <PrimaryButton href="/purchase" className="text-lg">
+          <Link 
+            href="/purchase" 
+            className="bg-deep-brown hover:bg-rooster text-white font-bold py-4 px-10 rounded-md transition-all duration-300 shadow-xl hover:shadow-2xl text-lg inline-block hover:-translate-y-1 transform border-2 border-rooster"
+          >
             Get Your Copy Now
-          </PrimaryButton>
+          </Link>
         </div>
       </section>
     </div>

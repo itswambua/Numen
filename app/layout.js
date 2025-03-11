@@ -1,6 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter  } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import { AuthProvider } from '@/components/auth/AuthProvider';
 import "./globals.css";
+
+const inter = Inter({ subsets: ['latin'] });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,19 +17,21 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "The Numen of Banda | by Hillan K. Nzioka",
-  description: "Official website for The Numen of Banda, a book by Hillan K. Nzioka",
+  description: "A captivating journey by Hillan K. Nzioka",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-deep-brown`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased text-deep-brown`}
       >
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <AuthProvider>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </AuthProvider>
       
         <footer className="bg-sky/90 text-deep-brown py-12">
   <div className="container mx-auto px-6">

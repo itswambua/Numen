@@ -1,5 +1,5 @@
-import { connectToDB } from '@/lib/db.js';
-import { Book, IBook } from '@/models/Book.js';
+import { connectToDB } from '@/lib/db';
+import { Book, IBook } from '@/models/Book';
 import Hero from '@/components/Hero';
 import BookFeatures from '@/components/BookFeatures';
 import FeaturedReviews from '@/components/FeaturedReviews';

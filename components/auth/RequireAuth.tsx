@@ -1,13 +1,14 @@
-// components/auth/RequireAuth.js
 "use client";
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, ReactNode } from "react";
 
-// This is a wrapper component that checks if the user is authenticated
-// If not, it redirects to the login page
-export function RequireAuth({ children }) {
+type RequireAuthProps = {
+  children: ReactNode;
+};
+
+export function RequireAuth({ children }: RequireAuthProps) {
   const { data: session, status } = useSession();
   const router = useRouter();
 

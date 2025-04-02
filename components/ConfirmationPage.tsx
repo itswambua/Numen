@@ -4,13 +4,26 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+interface OrderItem {
+  title: string;
+  quantity: number;
+  price: number;
+  format: string;
+}
+
+interface Order {
+  _id: string;
+  items: OrderItem[];
+  totalAmount: number;
+  status: string;
+}
+
 export default function ConfirmationPage() {
   const searchParams = useSearchParams();
-  const [orderId, setOrderId] = useState(null);
-  const [order, setOrder] = useState(null);
+  const [orderId, setOrderId] = useState<string | null>(null);
+  const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Grab orderId safely on client
   useEffect(() => {
     const id = searchParams.get("orderId");
     if (id) setOrderId(id);
@@ -38,12 +51,9 @@ export default function ConfirmationPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-6 text-center text-green-700">
-        🎉 Thank you for your order!
-      </h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-green-700">🎉 Thank you for your order!</h1>
       <p className="text-center mb-6">
-        Your order ID is{" "}
-        <span className="font-mono text-blue-600">{order._id}</span>
+        Your order ID is <span className="font-mono text-blue-600">{order._id}</span>
       </p>
 
       <div className="bg-white shadow rounded p-6 mb-6">
@@ -51,8 +61,7 @@ export default function ConfirmationPage() {
         <ul className="space-y-2">
           {order.items.map((item, index) => (
             <li key={index}>
-              📘 <strong>{item.title}</strong> ({item.format}) × {item.quantity} — $
-              {item.price.toFixed(2)}
+              📘 <strong>{item.title}</strong> ({item.format}) × {item.quantity} — ${item.price.toFixed(2)}
             </li>
           ))}
         </ul>

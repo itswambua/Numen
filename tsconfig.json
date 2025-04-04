@@ -35,7 +35,7 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "models/Order.ts"
-  ],
+, "app/api/checkout/route.ts"  ],
   "exclude": [
     "node_modules"
   ]

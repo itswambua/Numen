@@ -1,9 +1,8 @@
-// components>ConfirmationPage.tsx
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 interface OrderItem {
   title: string;
@@ -21,31 +20,37 @@ interface Order {
 
 export default function ConfirmationPage() {
   const searchParams = useSearchParams();
-  const [orderId, setOrderId] = useState<string | null>(null);
+  const paymentIntentId = searchParams.get("payment_intent");
+  const redirectStatus = searchParams.get("redirect_status");
+
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const id = searchParams.get("orderId");
-    if (id) setOrderId(id);
-  }, [searchParams]);
-
-  useEffect(() => {
     const fetchOrder = async () => {
-      if (!orderId) return;
+      if (!paymentIntentId || redirectStatus !== 'succeeded') {
+        setLoading(false);
+        return;
+      }
+
       try {
-        const res = await fetch(`/api/orders/${orderId}`);
+        const res = await fetch(`/api/orders/by-intent/${paymentIntentId}`);
         const data = await res.json();
-        setOrder(data.order);
+
+        if (data?.order?._id) {
+          setOrder(data.order);
+        } else {
+          console.error("Order not found for intent:", paymentIntentId);
+        }
       } catch (err) {
-        console.error(err);
+        console.error("Failed to fetch order", err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchOrder();
-  }, [orderId]);
+  }, [paymentIntentId, redirectStatus]);
 
   if (loading) return <p className="text-center mt-10">Loading your order...</p>;
   if (!order) return <p className="text-center text-red-500 mt-10">Order not found.</p>;

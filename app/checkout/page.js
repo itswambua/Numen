@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import StripeUnifiedCheckout from "@/components/StripeUnifiedCheckout";
+
 
 export default function CheckoutPage() {
   const { data: session, status } = useSession();
@@ -271,7 +273,20 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            {/* Payment information would go here in a real application */}
+            {/* Payment information  */}
+            <StripeUnifiedCheckout
+              cart={cart}
+              isGuest={isGuest}
+              guestInfo={isGuest ? { name: formData.name, email: formData.email } : null}
+              shippingDetails={{
+                address: formData.address,
+                city: formData.city,
+                state: formData.state,
+                zipCode: formData.zipCode,
+                country: formData.country
+              }}
+            />
+
 
             <button
               type="submit"

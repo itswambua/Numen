@@ -27,6 +27,7 @@ export interface IOrder extends Document {
   status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
   paymentStatus: 'pending' | 'paid' | 'failed' | 'refunded';
   orderDate: Date;
+  stripeIntentId: string; // ✅ used for webhook lookup
 }
 
 const OrderSchema = new Schema<IOrder>({
@@ -82,8 +83,12 @@ const OrderSchema = new Schema<IOrder>({
   orderDate: {
     type: Date,
     default: Date.now
+  },
+  stripeIntentId: {
+    type: String,
+    required: true,
+    unique: true
   }
 });
 
-// Export Mongoose model
 export const Order: Model<IOrder> = mongoose.models.Order || mongoose.model<IOrder>('Order', OrderSchema);

@@ -1,3 +1,4 @@
+// app>purchase>page.js
 "use client";
 
 import Link from "next/link";
@@ -6,8 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { PrimaryButton, SecondaryButton, TextButton } from "@/components/Button";
 
-// Import your Stripe Checkout Button Component
-import CheckoutButton from "@/components/CheckoutButton"; // Add this
+
 
 export default function PurchasePage() {
   const [selectedFormat, setSelectedFormat] = useState("hardcover");
@@ -17,7 +17,7 @@ export default function PurchasePage() {
     const stored = localStorage.getItem("selectedFormat");
     if (stored) setSelectedFormat(stored);
   }, []);
-  
+
   // Save to localStorage on change
   useEffect(() => {
     localStorage.setItem("selectedFormat", selectedFormat);
@@ -149,12 +149,41 @@ export default function PurchasePage() {
                     <span className="font-bold text-deep-brown text-xl">USD ${total}</span>
                   </div>
                 </div>
+                {/* Order Summary */}
+                <div className="card-primary sticky top-24">
+                  <h3 className="text-2xl font-bold text-deep-brown mb-6">Order Summary</h3>
 
-                {/* Stripe Checkout Button */}
-                <CheckoutButton 
-                  price={parseFloat(total) * 100} // Pass price as cents (integer)
-                  className="w-full mb-4" // Styling for your Stripe Button
-                />
+                  <div className="border-t border-mountain/20 my-4 pt-4">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-deep-brown">Subtotal</span>
+                      <span className="font-semibold text-deep-brown">USD ${subtotal}</span>
+                    </div>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-deep-brown">Shipping</span>
+                      <span className="font-semibold text-deep-brown">
+                        {shipping === 0 ? "Free" : `AUD $${shipping.toFixed(2)}`}
+                      </span>
+                    </div>
+                    <div className="border-t border-mountain/20 mt-4 pt-4 flex justify-between">
+                      <span className="text-deep-brown font-bold">Total</span>
+                      <span className="font-bold text-deep-brown text-xl">USD ${total}</span>
+                    </div>
+                  </div>
+
+                  {/* ✅ Replaces Stripe Checkout directly */}
+                  <PrimaryButton
+                    className="w-full"
+                    onClick={() =>
+                      router.push(`/checkout?format=${selectedFormat}&quantity=${quantity}`)
+                    }
+                  >
+                    Proceed to Checkout
+                  </PrimaryButton>
+                </div>
+
+                    <br>
+                    </br>
+                    <br></br>
                 <SecondaryButton className="w-full" href="/">Continue Shopping</SecondaryButton>
               </div>
             </div>

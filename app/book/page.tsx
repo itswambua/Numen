@@ -64,8 +64,57 @@ export default async function BookPage() {
             </div>
 
             <div className="md:w-2/3">
-              {/* Add synopsis/details if needed */}
+              <h2 className="text-3xl font-bold mb-6 text-deep-brown">Synopsis</h2>
+              <div className="prose max-w-none text-lg">
+                <p className="mb-4 text-deep-brown">
+                  <strong className="text-rooster">Caught between Tradition and Change: A Coming-of-Age Tale Where Tradition Becomes Survival</strong> <br></br>
+                  In the rugged landscapes of Kenya, where ancestral traditions and modern influences converge, 
+                  <strong> The Numen of Banda</strong> unfolds the compelling tale of Benjo Jogoo, a remarkable twelve-year-old boy caught between the powerful forces of tradition and change. 
+                </p>
+                <p className="mb-4 text-deep-brown">
+                Under the formidable shadow of his grandmother Sosh—a revered Field Marshal in the Kenya Land and Freedom Army and matriarch of the Aombe clan—Benjo 
+                navigates the complexities of his heritage. When his mother Minto experiences a second miscarriage, the family embarks on a perilous journey through 
+                treacherous terrain to seek healing from the legendary Numen of Banda, a mysterious medicine man with extraordinary abilities.
+                </p>
+                <p className="mb-4 text-deep-brown">
+                Their epic pilgrimage takes them across the unforgiving Thika River, through the vast Yatta Plateau, and past territories of hostile tribes. 
+                Every step brings new trials: confrontations with dangerous wildlife, tense encounters with the feared Akimi cannibals, and navigations 
+                through the political complexities of tribal relations. 
+                Each setting—from the dense jungle floor to the majestic Mount Banda—emerges as a character in its own right, beautifully rendered in vivid detail.
+                </p>
+                <p className="mb-4 text-deep-brown">
+                As they reach their destination, they stand awestruck before the Numen's compound—a bewildering otherworld where palatial opulence mocks abject suffering, 
+                where the medicine man's mansion rises like an eighth wonder of the world in the wilderness, and where ancient blood rituals are 
+                performed under chandeliers that would make European royalty envious. 
+                Through rituals and treatments, they gain not only physical healing but profound insights into their family's destiny.
+                </p>
+                <p className="text-deep-brown">
+                Upon their return—armed with potions, amulets, and strict instructions that would make a military general's orders seem casual—Benjo faces 
+                the knife in his circumcision ceremony, a brutal trial where one flinch could brand him an outcast forever. But the celebration is cut short 
+                by the devastating loss of his grandmother Sosh. As the novel closes, 
+                Benjo must reconcile his grief with his new responsibilities as Sosh's chosen heir, carrying forward her legacy in a rapidly changing world.
+                </p>
+                <p className="text-deep-brown">
+                Hillan K. Nzioka masterfully weaves a tapestry of Kamba traditions, colonial history, and personal transformation in this unforgettable 
+                coming-of-age story. Through one family's journey, we witness the enduring 
+                power of heritage, the complexity of modernization, and the unbreakable bonds that define us.
+                </p>
+              </div>
+              
+              <div className="mt-8">
+                <h3 className="text-2xl font-bold mb-4 text-deep-brown">Critical Acclaim</h3>
+                <div className="card-highlight">
+                  <blockquote className="italic text-mountain-dark mb-4">
+                  "In The Numen of Banda, Hillan K. Nzioka has crafted an extraordinary cultural epic that transports readers into the heart of 
+                  Kenyan tribal life with stunning authenticity. His portrayal of Kamba traditions, from the sacred circumcision rites to the mystical Kilumi dances, reveals an author deeply 
+                  committed to preserving cultural heritage while unflinchingly examining its complexities."
+                  </blockquote>
+                  <p className="text-right font-semibold text-deep-brown">- African Literary Review</p>
+                </div>
+              </div>
             </div>
+        
+
           </div>
         </div>
       </section>

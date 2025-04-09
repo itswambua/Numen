@@ -288,14 +288,14 @@ export default function CheckoutPage() {
             />
 
 
-            <button
+            {/* <button
               type="submit"
               disabled={loading}
               className={`w-full bg-blue-600 text-white py-3 px-4 rounded-md transition duration-300 mt-6 ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
                 }`}
             >
               {loading ? 'Processing...' : 'Complete Purchase'}
-            </button>
+            </button> */}
 
           </form>
         </div>

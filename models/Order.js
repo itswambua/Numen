@@ -1,90 +1,96 @@
 // models/Order.js
-import mongoose from 'mongoose';
+import { getDb } from '@/lib/db';
+import { ObjectId } from 'mongodb';
 
-const OrderSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: false // Not required for guest checkout
-  },
-  isGuest: {
-    type: Boolean,
-    default: false
-  },
-  customerName: {
-    type: String,
-    required: true
-  },
-  customerEmail: {
-    type: String,
-    required: true
-  },
-  items: [{
-    productId: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    quantity: {
-      type: Number,
-      required: true,
-      min: 1
-    },
-    price: {
-      type: Number,
-      required: true
-    },
-    format: {
-      type: String,
-      enum: ['hardcover', 'paperback', 'ebook', 'audiobook'],
-      required: true
-    }
-  }],
-  shippingDetails: {
-    address: {
-      type: String,
-      required: function() { return this.items.some(item => item.format !== 'ebook' && item.format !== 'audiobook'); }
-    },
-    city: {
-      type: String,
-      required: function() { return this.items.some(item => item.format !== 'ebook' && item.format !== 'audiobook'); }
-    },
-    state: {
-      type: String,
-      required: function() { return this.items.some(item => item.format !== 'ebook' && item.format !== 'audiobook'); }
-    },
-    zipCode: {
-      type: String,
-      required: function() { return this.items.some(item => item.format !== 'ebook' && item.format !== 'audiobook'); }
-    },
-    country: {
-      type: String,
-      required: function() { return this.items.some(item => item.format !== 'ebook' && item.format !== 'audiobook'); }
-    }
-  },
-  totalAmount: {
-    type: Number,
-    required: true
-  },
-  status: {
-    type: String,
-    enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
-    default: 'pending'
-  },
-  paymentStatus: {
-    type: String,
-    enum: ['pending', 'paid', 'failed', 'refunded'],
-    default: 'pending'
-  },
-  orderDate: {
-    type: Date,
-    default: Date.now
+export class Order {
+  constructor(data) {
+    this._id = data._id;
+    this.userId = data.userId; // Will be null for guest
+    this.isGuest = data.isGuest || false;
+    this.customerName = data.customerName;
+    this.customerEmail = data.customerEmail;
+    this.items = data.items || [];
+    this.shippingDetails = data.shippingDetails;
+    this.totalAmount = data.totalAmount;
+    this.status = data.status || 'pending';
+    this.paymentStatus = data.paymentStatus || 'pending';
+    this.orderDate = data.orderDate || new Date();
   }
-});
 
-export const Order = mongoose.models.Order || mongoose.model('Order', OrderSchema);
+  // Create a new order
+  static async create(orderData) {
+    const db = await getDb();
+    const collection = db.collection('orders');
+    
+    // Convert userId to ObjectId if it exists
+    if (orderData.userId) {
+      orderData.userId = new ObjectId(orderData.userId);
+    }
+    
+    const result = await collection.insertOne({
+      ...orderData,
+      orderDate: new Date()
+    });
+    
+    return {
+      ...orderData,
+      _id: result.insertedId
+    };
+  }
 
+  // Find an order by ID
+  static async findById(id) {
+    const db = await getDb();
+    const collection = db.collection('orders');
+    const order = await collection.findOne({ _id: new ObjectId(id) });
+    return order ? new Order(order) : null;
+  }
 
+  // Find orders by user ID
+  static async findByUserId(userId) {
+    const db = await getDb();
+    const collection = db.collection('orders');
+    const orders = await collection.find({ 
+      userId: new ObjectId(userId) 
+    }).sort({ orderDate: -1 }).toArray();
+    
+    return orders.map(order => new Order(order));
+  }
+
+  // Find orders by email (for guest orders)
+  static async findByEmail(email) {
+    const db = await getDb();
+    const collection = db.collection('orders');
+    const orders = await collection.find({ 
+      customerEmail: email 
+    }).sort({ orderDate: -1 }).toArray();
+    
+    return orders.map(order => new Order(order));
+  }
+
+  // Update order status
+  static async updateStatus(orderId, status) {
+    const db = await getDb();
+    const collection = db.collection('orders');
+    
+    await collection.updateOne(
+      { _id: new ObjectId(orderId) },
+      { $set: { status } }
+    );
+    
+    return this.findById(orderId);
+  }
+
+  // Update payment status
+  static async updatePaymentStatus(orderId, paymentStatus) {
+    const db = await getDb();
+    const collection = db.collection('orders');
+    
+    await collection.updateOne(
+      { _id: new ObjectId(orderId) },
+      { $set: { paymentStatus } }
+    );
+    
+    return this.findById(orderId);
+  }
+}

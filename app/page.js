@@ -4,8 +4,13 @@ import BookFeatures from "@/components/BookFeatures";
 import FeaturedReviews from "@/components/FeaturedReviews";
 import AuthorSection from "@/components/AuthorSection";
 import { PrimaryButton, SecondaryButton } from "@/components/Button";
+import clientPromise from "@/lib/db";
+// import clientPromise from "@/lib/db";
 
 export default function Home() {
+
+  // clientPromise.db.collection("users").find({ age : 32});
+
   return (
     <div>
       <Hero />

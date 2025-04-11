@@ -1,9 +1,8 @@
 // app/api/checkout/route.js
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/authOptions';
-import { connectToDB } from '@/lib/db';
-import { Order } from '@/models/Order'; // You'll need to create this
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { Order } from '@/models/Order';
 
 export async function POST(request) {
   try {
@@ -16,8 +15,6 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-    
-    await connectToDB();
     
     let userId = null;
     let userEmail = null;
@@ -47,32 +44,48 @@ export async function POST(request) {
       userName = guestInfo.name;
     }
     
+    // Calculate total (should also validate this server-side)
+    const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    
+    // Add shipping cost if applicable
+    const hasPhysicalItem = items.some(item => 
+      item.format !== 'ebook' && item.format !== 'audiobook'
+    );
+    
+    const shipping = hasPhysicalItem ? 4.99 : 0;
+    const finalTotal = totalAmount + shipping;
+    
     // Create order
-    const newOrder = new Order({
-      userId, // Will be null for guest
+    const orderData = {
+      userId,
       isGuest,
       customerName: userName,
       customerEmail: userEmail,
       items,
       shippingDetails: isGuest ? guestInfo.shipping : shippingDetails,
-      totalAmount: items.reduce((sum, item) => sum + item.price * item.quantity, 0),
-      status: 'pending'
-    });
+      shipping,
+      subtotal: totalAmount,
+      totalAmount: finalTotal,
+      status: 'pending',
+      paymentStatus: 'pending'
+    };
     
-    await newOrder.save();
+    const newOrder = await Order.create(orderData);
     
-    // integrate with a payment provider
-    // like Stripe, PayPal.
+    // Here you would integrate with payment processor like Stripe
+    // For now, we'll just return the order
     
     return NextResponse.json({
       success: true,
       message: 'Order created successfully',
-      orderId: newOrder._id
+      orderId: newOrder._id,
+      orderData: newOrder
     });
+    
   } catch (error) {
     console.error('Checkout error:', error);
     return NextResponse.json(
-      { success: false, message: 'Error processing checkout' },
+      { success: false, message: error.message || 'Error processing checkout' },
       { status: 500 }
     );
   }

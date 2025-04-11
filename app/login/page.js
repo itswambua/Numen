@@ -1,13 +1,13 @@
-// app/login/page.js
 "use client";
-
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect') || '/';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,20 +27,29 @@ export default function LoginPage() {
 
       if (result.error) {
         setError('Invalid email or password');
+        setLoading(false);
       } else {
-        router.push('/checkout');
-        router.refresh();
+        router.push(`/${redirectTo}`);
       }
     } catch (error) {
       setError('Something went wrong. Please try again.');
-    } finally {
       setLoading(false);
     }
   };
 
+  const handleGuestCheckout = () => {
+    router.push(`/${redirectTo}?guest=true`);
+  };
+
   return (
     <div className="max-w-md mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center text-deep-brown">Login to Your Account</h1>
+      
+      {redirectTo === 'checkout' && (
+        <div className="bg-sky/30 border border-sky/50 text-deep-brown px-4 py-3 rounded mb-6">
+          <p>Login to complete your purchase or continue as a guest below.</p>
+        </div>
+      )}
       
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -48,48 +57,53 @@ export default function LoginPage() {
         </div>
       )}
       
-      <form onSubmit={handleSubmit}>
+      <div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+          <label htmlFor="email" className="block text-deep-brown mb-2">Email</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full px-3 py-2 border border-mountain/30 rounded-md focus:outline-none focus:ring-2 focus:ring-rooster/50"
             required
           />
         </div>
         
         <div className="mb-6">
-          <label htmlFor="password" className="block text-gray-700 mb-2">Password</label>
+          <label htmlFor="password" className="block text-deep-brown mb-2">Password</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            className="w-full px-3 py-2 border border-mountain/30 rounded-md focus:outline-none focus:ring-2 focus:ring-rooster/50"
             required
           />
         </div>
         
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-        >
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
-      
-      <div className="mt-4 text-center">
-        <p>Don't have an account? <Link href="/register" className="text-blue-600 hover:underline">Register</Link></p>
+        <div className="mb-6">
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="w-full bg-black text-white py-3 px-4 rounded-md hover:bg-rooster/90 transition duration-300 font-medium"
+          >
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+        </div>
       </div>
       
-      <div className="mt-6 text-center">
-        <Link href="/checkout?guest=true" className="text-gray-600 hover:underline">
-          Continue as guest
-        </Link>
+      <div className="mt-4 text-center">
+        <p className="text-deep-brown mb-4">Don't have an account? <Link href="/register" className="text-rooster hover:underline">Register</Link></p>
+        
+        {redirectTo === 'checkout' && (
+          <button 
+            onClick={handleGuestCheckout} 
+            className="w-full border border-mountain/50 text-deep-brown py-3 px-4 rounded-md hover:bg-sky/20 transition duration-300 mt-2"
+          >
+            Continue as Guest
+          </button>
+        )}
       </div>
     </div>
   );

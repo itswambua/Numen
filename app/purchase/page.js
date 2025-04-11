@@ -3,9 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { PrimaryButton, SecondaryButton, TextButton } from "@/components/Button";
+import { useSession } from "next-auth/react";
 
 export default function PurchasePage() {
+  const router = useRouter();
+  const { data: session, status } = useSession();
   const [selectedFormat, setSelectedFormat] = useState("hardcover");
   const [quantity, setQuantity] = useState(1);
   
@@ -33,6 +37,34 @@ export default function PurchasePage() {
   const shipping = selectedFormat === "ebook" || selectedFormat === "audiobook" ? 0 : 4.99;
   const total = (parseFloat(subtotal) + shipping).toFixed(2);
 
+  const handleCheckout = () => {
+    // Store cart information in localStorage to access it in checkout
+    const cartData = {
+      items: [
+        {
+          productId: "numen-of-banda",
+          title: "The Numen of Banda",
+          format: selectedFormat,
+          quantity: quantity,
+          price: formatDetails.price
+        }
+      ],
+      subtotal: parseFloat(subtotal),
+      shipping: shipping,
+      total: parseFloat(total)
+    };
+
+    localStorage.setItem("cart", JSON.stringify(cartData));
+
+    // If user is logged in, go directly to checkout
+    // Otherwise, go to login page with option to continue as guest
+    if (status === "authenticated") {
+      router.push("/checkout");
+    } else {
+      router.push("/login?redirect=checkout");
+    }
+  };
+
   return (
     <div>
       {/* Hero Banner */}
@@ -56,7 +88,7 @@ export default function PurchasePage() {
                     key={format.id}
                     className={`border-2 rounded-lg p-6 cursor-pointer transition-colors ${
                       selectedFormat === format.id 
-                        ? "border-rooster bg-white" 
+                        ? "border-rooster bg-rooster/10" 
                         : "border-mountain/30 bg-white/80 hover:border-mountain/70"
                     }`}
                     onClick={() => setSelectedFormat(format.id)}
@@ -69,13 +101,13 @@ export default function PurchasePage() {
                     <p className="text-forest text-sm mb-4">{format.stock}</p>
                     <div className="flex items-center">
                       <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
-                        selectedFormat === format.id ? "border-rooster" : "border-mountain"
+                        selectedFormat === format.id ? "border-rooster bg-rooster/20" : "border-mountain"
                       }`}>
                         {selectedFormat === format.id && (
                           <div className="w-3 h-3 rounded-full bg-rooster"></div>
                         )}
                       </div>
-                      <span className="ml-2 text-deep-brown">
+                      <span className="ml-2 text-deep-brown font-medium">
                         {selectedFormat === format.id ? "Selected" : "Select"}
                       </span>
                     </div>
@@ -201,7 +233,7 @@ export default function PurchasePage() {
                   <div className="flex justify-between mb-2">
                     <span className="text-deep-brown">Shipping</span>
                     <span className="font-semibold text-deep-brown">
-                      {shipping === 0 ? "Free" : `AUD $${shipping.toFixed(2)}`}
+                      {shipping === 0 ? "Free" : `USD $${shipping.toFixed(2)}`}
                     </span>
                   </div>
                   <div className="border-t border-mountain/20 mt-4 pt-4 flex justify-between">
@@ -211,7 +243,7 @@ export default function PurchasePage() {
                 </div>
                 
                 <div className="mt-6">
-                  <PrimaryButton className="w-full mb-4">
+                  <PrimaryButton className="w-full mb-4" onClick={handleCheckout}>
                     Proceed to Checkout
                   </PrimaryButton>
                   <SecondaryButton className="w-full" href="/">

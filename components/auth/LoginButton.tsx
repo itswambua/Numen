@@ -1,4 +1,3 @@
-// components/auth/LoginButton.js
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -7,7 +6,7 @@ import Link from "next/link";
 export function LoginButton() {
   const { data: session } = useSession();
 
-  if (session) {
+  if (session?.user) {
     return (
       <div className="flex items-center gap-4">
         <span className="text-sm hidden md:inline">Hello, {session.user.name}</span>
